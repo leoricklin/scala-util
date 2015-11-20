@@ -7,12 +7,12 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * Created by leorick on 2015/11/20.
  */
-object LdapClient {
+object LdapHelper {
   val _env = new java.util.Hashtable[String, String]()
   var _ctx = None:Option[InitialDirContext]
   var _controls = None:Option[SearchControls]
 
-  def connect(url:String): LdapClient.type = {
+  def connect(url:String): LdapHelper.type = {
     _env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory")
     _env.put(Context.PROVIDER_URL, url)
     _ctx = Some(new InitialDirContext(_env))

@@ -8,9 +8,9 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * Created by leorick on 2015/11/20.
  */
-object LdapClientTest {
+object LdapHelperTest {
   def main(args: Array[String]) {
-    val client = LdapClient.connect("ldap://10.176.32.8:389/ou=people,dc=cht,dc=local")
+    val client = LdapHelper.connect("ldap://10.176.32.8:389/ou=people,dc=cht,dc=local")
     val controls = new SearchControls()
     controls.setSearchScope(SearchControls.SUBTREE_SCOPE)
     val results: ArrayBuffer[Attributes] = client.search("","(objectclass=person)", controls)
